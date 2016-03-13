@@ -32,10 +32,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':password', $password);
 
-        $stmt->execute();
+        $result = $stmt->execute();
 
-        header('Location: login.php');
-        exit;
+        if ($result) {
+            header('Location: login.php');
+            exit;
+        } else {
+            $errors[] = 'その名前は既に登録されています';
+        }
     }
 }
 ?>
