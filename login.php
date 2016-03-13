@@ -47,8 +47,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        // var_dump($user);
-
         // $userが false でない場合
         // -> ログイン成功
         if ($user) {
@@ -85,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
     <?php endif ?>
     <form action="" method="post">
-        ユーザネーム: <input type="text" name="name"><br>
+        ユーザネーム: <input type="text" name="name" value="<?= $name ?>"><br>
         パスワード: <input type="text" name="password"><br>
         <input type="submit" value="ログイン">
     </form>

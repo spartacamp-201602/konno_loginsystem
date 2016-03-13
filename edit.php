@@ -21,6 +21,9 @@ $stmt->execute();
 
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+$name = $user['name'];
+$password = $user['password'];
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
     $password = $_POST['password'];
@@ -83,8 +86,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
     <?php endif ?>
     <form action="" method="post">
-        ユーザネーム: <input type="text" name="name" value="<?= $user['name'] ?>"><br>
-        パスワード: <input type="text" name="password" value="<?= $user['password'] ?>"><br>
+        ユーザネーム: <input type="text" name="name" value="<?= $name ?>"><br>
+        パスワード: <input type="text" name="password" value="<?= $password?>"><br>
         <input type="submit" value="編集する">
     </form>
     <a href="index.php">戻る</a>
