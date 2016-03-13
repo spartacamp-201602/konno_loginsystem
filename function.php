@@ -1,6 +1,6 @@
 <?php
 // DB接続
-function connectDatabase()
+function connectDb()
 {
   try
   {
